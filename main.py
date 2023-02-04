@@ -97,21 +97,21 @@ class theBall():
     
     def forward(self):
         for _ in range(self.maxStep):
-            print('Now at %f %f %f' % (self.x, self.y, self.z));
+            #print('Now at %f %f %f' % (self.x, self.y, self.z));
             if self.brd.checkHit(self.x, self.y, self.z) or self.scr.checkHit(self.x, self.y, self.z):
-                print('Hit!\n')
+                #print('Hit!\n')
                 break
             self.x += self.x_v
             self.y += self.y_v
             self.z += self.z_v
             #time.sleep(0.01)
     
-brd = theBoard(400, 400, 200, 300, 300, 10)
+brd = theBoard(-256, -256, 200, 512, 512, 10)
 scr = theScreen(-960, -540, 400, 1920, 1080, 10)
 brd.draw()
 
-for i in range(2048):
-    ball = theBall(250, 250, 0, 1, 4096, brd, scr)
+for i in range(8192):
+    ball = theBall(0, 0, 0, 1, 2048, brd, scr)
     ball.forward()
     scr.draw()
 
